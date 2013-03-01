@@ -1,0 +1,17 @@
+An AVL tree is a BST with the following property.
+At each node N, the height of N's left subtree and the
+height of N's right subtree differ by at most 1.
+
+add a new field to each node:
+balance = (height of LST) - (height of RST)
+balance needs to be between [-1,1]
+
+For this tree, we have special insert and delete operations that
+always preserve the balance property.
+
+The way the special inserts work.
+1) Perform a regular BST insert or delete. If the tree is now unbalanced
+ that means that some node now has a balance of -2 or 2.
+ You now have to rebalance the tree.
+
+ the operation that we will use to do the rebalancing is rotate.
