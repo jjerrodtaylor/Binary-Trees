@@ -57,6 +57,48 @@ public class BST<T extends Comparable<T> >{
         {
             this.data = data;
         }
+
+        public BSTNode(T data, BSTNode<T> left, BSTNode<T> right)
+        {
+            this.data = data;
+            this.left = left;
+            this.right = right;
+        }
+
+        public void setData(T data)
+        {
+            this.data = data;
+        }
+
+        public T getData()
+        {
+            return this.data;
+        }
+
+        public void setLeft(BSTNode<T> left)
+        {
+            this.left = left;
+        }
+
+        public BSTNode<T> getLeft()
+        {
+            return this.left;
+        }
+
+        public void setRight(BSTNode<T> right)
+        {
+            this.right = right;
+        }
+
+        public BSTNode<T> getRight()
+        {
+            return this.right;
+        }
+
+        public boolean isLeaf()
+        {
+            return (left == null) && (right == null);
+        }
     }
 
     private BSTNode<T> root;
@@ -66,6 +108,7 @@ public class BST<T extends Comparable<T> >{
         return root == null;
     }
 
+    //you pass in the root of the tree
     private T search(T target, BSTNode<T> ptr)
     {
         if(ptr == null)
@@ -194,6 +237,31 @@ public class BST<T extends Comparable<T> >{
              inorder(ptr.left);
              //visit(ptr);
              inorder(ptr.right);
+        }
+    }
+
+    public T getLeftmostData(BSTNode<T> ptr)
+    {
+        if(ptr.left == null)
+        {
+            return ptr.data;
+        }
+        else
+        {
+            return this.getLeftmostData(ptr.left);
+        }
+    }
+
+    //returns the right most data from a node in a tree
+    public T getRightmostData(BSTNode<T> ptr)
+    {
+        if(ptr.right == null)
+        {
+            return ptr.data;
+        }
+        else
+        {
+            return this.getRightmostData(ptr.right);
         }
     }
 

@@ -29,7 +29,7 @@ public class Table<Key extends Comparable<Key>, Value> {
         }
     }
 
-    private BST<Table.Entry<Key, Value>> tree = new BST<Table.Entry<Key, Value>>();
+    private BST<Table<Key, Value>.Entry<Key, Value>> tree = new BST<Table<Key, Value>.Entry<Key, Value>>();
 
     //must supply public methods for the three operations
 
